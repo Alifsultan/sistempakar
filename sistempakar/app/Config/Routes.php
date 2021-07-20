@@ -37,11 +37,12 @@ $routes->get('/', 'User::index');
 //masuk ke dashboard user
 // $routes->get('/', 'User::index');
 $routes->get('/about', 'User::about');
+$routes->get('/data', 'User::data_uji');
 // $routes->get('profile', 'User::profile', ['filter' => 'auth']);
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
-$routes->delete('admin/delete/(:segment)', 'Admin::delete/$1'); 
+$routes->delete('admin/delete/(:segment)', 'Admin::index/$1',['filter' => 'role:admin'] ); 
 
 
 

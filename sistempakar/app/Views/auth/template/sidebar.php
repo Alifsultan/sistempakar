@@ -65,9 +65,9 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="<?= base_url('pages/data_uji'); ?>">
                     <i class="fas fa-book-medical"></i>
-                    <span>Data Gejala</span>
+                    <span>Data Uji</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             </li>
@@ -85,6 +85,14 @@
             </li>
 
         <?php endif; ?>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-history"></i>
+                <span>Konsultasi</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="charts.html">

@@ -8,6 +8,10 @@ class Pages extends BaseController
     {
         return view('pages/about');
     }
+    public function data_uji()
+    {
+        return view('pages/data_uji');
+    }
     public function gangguan()
     {
         $data = [

@@ -104,51 +104,29 @@ class Admin extends Controller
     }
 	
 
-	public function delete()
+    public function delete($id = NULL)
     {
-        $id = $this->request->getPost('id');
-        // $email = $this->request->getPost('email');
-        // $username = $this->request->getPost('username');
-        // var_dump($this->db);
-        // die;
-        $hapus = $this->adm->delete_list($id);
- 
-        // Jika berhasil melakukan hapus
+        $hapus = new UserModels();
+        // $hapus = $this->adm->update_user($id);
+        
+        // // Jika berhasil melakukan hapus
         if($hapus)
         {
-            // Deklarasikan session flashdata dengan tipe warning
-            session()->setFlashdata('warning', 'Deleted product successfully');
-            // Redirect ke halaman product
-            return redirect('/admin/index');
+            // delete data
+            $this->adm->delete_list($id);
+            $msg = ['message' => 'Deleted user successfully'];
+            $response = [
+                'status' => 200,
+                'error' => false,
+                'data' => $msg,
+            ];
+        // return $this->respond($response, 200);
+        return redirect('admin/index');
         }
         
-        // $this->builder->delete($data);
-        // return redirect('admin/index');
+        // $this->builder->delete($admin);
+        // var_dump($this->db);
+        // die;
     }
-    // echo view('/admin/index', $id);
-    // public function delete($id = NULL)
-    // {
-    //     // cek id
-    //     $cekid = $this->adm->deleteUser($id);
-        
-    //     if(!empty($cekid)){
-    //         // delete data
-    //         $this->adm->deleteUser($id);
-    //         $msg = ['message' => 'Deleted user successfully'];
-    //         $response = [
-    //             'status' => 200,
-    //             'error' => false,
-    //             'data' => $msg,
-    //         ];
-    //         return $this->respond($response, 200);
-    //     } else {
-    //         $msg = ['message' => 'Deleted user failed'];
-    //         $response = [
-    //             'status' => 500,
-    //             'error' => false,
-    //             'data' => $msg,
-    //         ];
-    //         return $this->respond($response, 500);
-    //     }
-    // }
+    
 }
